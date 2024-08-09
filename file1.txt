@@ -1,10 +1,50 @@
-task 1 problem 0
-include <bits/stdc++.h>
+#include <iostream>
+
 using namespace std;
 
-int main() {
-     string name;
-    getline(cin,name);
-    cout << "Hello, " << name << "!"<<endl;
+int main()
+{
+    int rows ; int columns;// row is representing the number of comparisons  and columns is representing the number of values of power
+    cout << "Enter the number of comparisons= "  ;
+     cin >> rows;
+    cout << "Enter the number of power's values= "  ;
+    cin >> columns;
+    int power1[rows][columns];// power1 refers to Justice_League
+    int power2[rows][columns];// power2 refers to villains
+    cout << "Enter the power values of Justice_League  "  ;
+    for (int i=0;i<rows ;i++){
+        for (int j=0; j< columns;j++){
+            cin >>power1[i][j];
+        }
+    }
+    cout << " Enter the power values of  villains "  ;
+    for (int i=0 ; i<rows ;i++){
+        for (int j=0 ; j< columns; j++){
+            cin >> power2[i][j];
+        }
+    }
+     for (int i=0 ; i<rows ;i++){
+        for (int j=0 ; j< columns; j++){
+            if (power1[i][j]> power2[i][j]){
+
+            }
+        }
+     }
+         for (int i=0 ; i<rows ;i++){
+        for (int j=0 ; j< columns; j++){
+             power1[i][j]=power1[i][j]+power1[i-1][j-1];
+             power2[i][j]=power2[i][j]+power1[i-1][j-1];
+        }
+    }
+  if (power1[rows-1][columns-1]>power2[rows-1][columns-1]){
+      cout << "Justice_League wins in the area.";
+      }
+      else if (power1[rows-1][columns-1]<power2[rows-1][columns-1]){
+        cout << "villains wins in the area.";
+      }
+      else if (power1[rows-1][columns-1]=power2[rows-1][columns-1]){
+        cout << "In a tie for this area.";
+      }
+
     return 0;
 }
